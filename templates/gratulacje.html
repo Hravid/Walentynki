@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratulacje!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce8e8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        #message {
+            margin-bottom: 20px;
+        }
+
+        #form-container {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #e74c3c;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        #signature {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gratulacje!</h1>
+    <p id="message">Udało Ci się zostać moją walentynką! W polu poniżej podaj preferowaną godzinę oraz Twój Instagram. Polecam się na przyszłość.</p>
+
+    <div id="form-container">
+        <form>
+            <label for="preferred-time">Preferowana godzina:</label>
+            <input type="text" id="preferred-time" name="preferred-time" placeholder="Np. 19:00">
+
+            <label for="instagram">Twój Instagram:</label>
+            <input type="text" id="instagram" name="instagram" placeholder="Twój Instagram">
+
+            <button type="submit">Zapisz</button>
+        </form>
+    </div>
+
+    <p id="signature">Giga Kox</p>
+</body>
+</html>

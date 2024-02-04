@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        /* Your existing styles remain unchanged */
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce8e8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #e74c3c;
+        }
+
+        #button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #yes-button {
+            background-color: #e74c3c; /* Changed the color to red */
+            color: #fff;
+            border: none;
+            margin-right: 200px; 
+        }
+
+        #no-button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            margin-left: 200px; 
+            position: absolute;
+            top: {{ top_position }}vh;
+            left: {{ left_position }}vw;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #e74c3c;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #popup-text {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bedziesz moją walentynką?</h1>
+    <div id="button-container">
+        <button id="yes-button" class="button" onclick="playYesSound()">Yes</button>
+        <button id="no-button" class="button" onclick="moveNoButton()">No</button>
+    </div>
+
+    <audio id="yes-sound">
+        <source src="../media/yes_sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="popup" id="popup">
+        <p id="popup-text"></p>
+    </div>
+
+    <script>
+        function playYesSound() {
+            const sound = document.getElementById("yes-sound");
+            sound.play();
+            
+            sound.addEventListener('ended', function () {
+                window.location.href = '/gratulacje';
+            });
+        }
+
+        function moveNoButton() {
+            const noButton = document.getElementById("no-button");
+            noButton.style.top = Math.random() * 80 + 10 + "vh";
+            noButton.style.left = Math.random() * 80 + 10 + "vw";
+
+            // Show the popup
+            showPopup();
+        }
+
+        function showPopup() {
+            const popup = document.getElementById("popup");
+            const popupText = document.getElementById("popup-text");
+            popupText.innerText = "Nie znaczy tak";
+            popup.style.display = "block";
+
+            // Hide the popup after 2 seconds
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
